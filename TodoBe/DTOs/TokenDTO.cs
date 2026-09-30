@@ -1,0 +1,8 @@
+namespace TodoBe.DTOs;
+
+public class TokenDTO
+{
+    public string Token { get; set; }
+    public DateTime Expiration { get; set; }
+    public string UserId { get; set; }
+}

@@ -13,9 +13,9 @@ public class TodoRepository : ITodoRepository
         _dbContext = dbContext;
     }
 
-    public async Task<List<Todo>> GetTodos()
+    public async Task<List<Todo>> GetTodos(string userId)
     {
-        var data = await _dbContext.Todos.OrderBy(x => x.Id).ToListAsync();
+        var data = await _dbContext.Todos.Where(x => x.UserId == userId).OrderBy(x => x.Id).ToListAsync();
         return data;
     }
 

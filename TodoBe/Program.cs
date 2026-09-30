@@ -1,5 +1,10 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using TodoBe.Contexts;
+using TodoBe.Entities;
 using TodoBe.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +26,49 @@ string connString  = builder.Configuration.GetConnectionString("TodoDb");
 builder.Services.AddDbContext<TodoDbContext>(options =>
     options.UseNpgsql(connString).UseSnakeCaseNamingConvention());
 
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["JWT:ValidIssuer"],
+        ValidAudience = builder.Configuration["JWT:ValidAudience"],
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(builder.Configuration["JWT:Secret"])
+        )
+    };
+    options.Events = new JwtBearerEvents
+    {
+        OnMessageReceived = context =>
+        {
+            Console.WriteLine("[JWT BOUNDARY] A request has reached the Auth Middleware!");
+            var authHeader = context.Request.Headers["Authorization"].ToString();
+            Console.WriteLine($"[JWT BOUNDARY] Header Value Received: {authHeader}");
+            return Task.CompletedTask;
+        },
+        OnAuthenticationFailed = context =>
+        {
+            Console.WriteLine($"\n[JWT DEBUG] Validation Failed! Reason: {context.Exception.Message}");
+            if (context.Exception.InnerException != null)
+            {
+                Console.WriteLine($"[JWT DEBUG] Inner Details: {context.Exception.InnerException.Message}");
+            }
+            return Task.CompletedTask;
+        }
+    };
+});
+
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<TodoDbContext>()
+    .AddDefaultTokenProviders();
+
 builder.Services.AddScoped<ITodoRepository, TodoRepository>();
 
 builder.Services.AddControllers();
@@ -36,6 +84,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 var summaries = new[]
 {
@@ -56,8 +108,6 @@ app.MapGet("/weatherforecast", () =>
     })
     .WithName("GetWeatherForecast");
 
-app.UseHttpsRedirection();
-app.UseCors();
 app.MapControllers();
 app.Run();
 

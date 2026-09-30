@@ -14,7 +14,21 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3af2fca6-d21a-40d7-90d0-57bc9bf4e7ba" name="Changes" comment="" />
+    <list default="true" id="3af2fca6-d21a-40d7-90d0-57bc9bf4e7ba" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TodoBe/Controllers/AuthController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TodoBe/DTOs/TokenDTO.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TodoBe/Entities/ApplicationUser.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TodoBe/Entities/LoginModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TodoBe/Entities/RegisterModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TodoBe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TodoBe/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoBe/Contexts/TodoDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoBe/Contexts/TodoDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoBe/Controllers/TodoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoBe/Controllers/TodoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoBe/Entities/Todo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoBe/Entities/Todo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoBe/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoBe/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoBe/Repositories/ITodoRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoBe/Repositories/ITodoRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoBe/Repositories/TodoRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TodoBe/Repositories/TodoRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TodoBe/TodoBe.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/TodoBe/TodoBe.csproj" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,18 +38,29 @@
     <option name="firstShow" value="false" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/TodoBe/Contexts/TodoDbContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TodoBe/Controllers/AuthController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TodoBe/Controllers/TodoController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TodoBe/DTOs/ErrorWrapper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TodoBe/DTOs/TokenDTO.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TodoBe/Entities/ApplicationUser.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TodoBe/Entities/LoginModel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TodoBe/Entities/RegisterModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TodoBe/Entities/Todo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TodoBe/Repositories/ITodoRepository.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TodoBe/Repositories/TodoRepository.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Toolset" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -59,13 +84,13 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;auth&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.TodoBe: http">
@@ -115,7 +140,19 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

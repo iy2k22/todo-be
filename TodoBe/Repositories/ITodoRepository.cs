@@ -4,7 +4,7 @@ namespace TodoBe.Repositories;
 
 public interface ITodoRepository
 {
-    public Task<List<Todo>> GetTodos();
+    public Task<List<Todo>> GetTodos(string userId);
     public Task<Todo?> GetTodoById(int id);
     public Task<int> ToggleStatus(int id);
     public Task<int> DeleteTodos();

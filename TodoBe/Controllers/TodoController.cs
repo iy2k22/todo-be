@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TodoBe.Contexts;
 using TodoBe.DTOs;
@@ -8,20 +10,21 @@ namespace TodoBe.Controllers;
 
 [ApiController]
 [Route("api")]
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class TodoController : ControllerBase
 {
     private readonly ITodoRepository _repository;
     
-    public  TodoController(ITodoRepository repository)
+    public TodoController(ITodoRepository repository)
     {
         _repository = repository;
     }
 
     [HttpGet]
     [Route("GetTodos")]
-    public async Task<ActionResult<List<Todo>>> GetTodos()
+    public async Task<ActionResult<List<Todo>>> GetTodos(string userId)
     {
-        var result = await _repository.GetTodos();
+        var result = await _repository.GetTodos(userId);
         return Ok(result);
     }
 
